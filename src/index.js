@@ -1,0 +1,1 @@
+import HomePage from './js/components/HomePage';
