@@ -14,7 +14,7 @@ class MoviePage extends Component {
                     <img className="mr-3" src={data.img} alt={data.title} />
                     <div className="media-body">
                         <h2 className="mt-0">{data.title}</h2>
-                        {Object.entries(data.ratings).map(([name, rating]) => <p className="text-capitalize" key={name}>{name}: {rating}</p>)}
+                        {Object.entries(data.ratings || {}).map(([name, rating]) => <p className="text-capitalize" key={name}>{name}: {rating}</p>)}
                         <p>{data.plot}</p>
                     </div>
                 </div>

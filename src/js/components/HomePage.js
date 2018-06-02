@@ -14,7 +14,7 @@ class HomePage extends Component {
                 <a href="/new" className="btn btn-link">add movie</a>
 
                 <div className="row">
-                    {this.props.movies.map(_=> <MovieCard key={_.id} data={_} />)}
+                    {this.props.movies.map(_=> <MovieCard {...this.props} key={_.id} data={_} />)}
                 </div>
             </div>
         )
