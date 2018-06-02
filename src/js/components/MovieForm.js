@@ -120,7 +120,7 @@ class MovieForm extends React.Component {
                     <div className="row">
                         <div className="col-sm-3"></div>
                         <div className="col-sm-9">
-                            <a href="/" onClick={this.onSubmit.bind(this)} className="btn btn-link">Save</a>
+                            <input className="btn btn-link" type="submit" value="Save"/>
                             <Link to="/" className="btn btn-link">Cancel</Link>
                         </div>
                     </div>

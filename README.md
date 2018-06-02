@@ -1,4 +1,4 @@
-=== Setup instructions
+### Setup instructions
 
 ```
 git clone https://github.com/kaera/MovieCatalog
