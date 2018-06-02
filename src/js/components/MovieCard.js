@@ -23,6 +23,7 @@ class MovieCard extends Component {
                     <p className="card-text">Продолжительность: {this.props.data.duration}</p>
 
                     <a href={this.props.data.id} className="btn btn-link">Show details</a>
+
                 </div>
             </div>
         )

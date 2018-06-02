@@ -2,14 +2,16 @@ import React from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import MoviePage from './MoviePage';
+import MovieCreatePage from './MovieCreatePage';
 
-const App = ({ data }) => {
+const App = () => {
     return (
         <Router>
             <div>
                 <Switch>
-                    <Route exact path="/" render={() => <HomePage data={data.slice(0, 5)} />} />
-                    <Route path="/:id" render={(props) => <MoviePage data={data.find(movie => movie.id == props.match.params.id )} />} />
+                    <Route exact path="/" component={HomePage}  />
+                    <Route exact path="/new" component={MovieCreatePage} />
+                    <Route path="/:id" component={MoviePage} />
                 </Switch>
             </div>
         </Router>

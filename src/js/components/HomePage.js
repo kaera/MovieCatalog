@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from './MovieCard';
+import {connect} from "react-redux";
 
 class HomePage extends Component {
     constructor(props) {
@@ -10,11 +11,14 @@ class HomePage extends Component {
         return (
             <div>
                 <h1>Movie Catalog</h1>
+                <a href="/new" className="btn btn-link">add movie</a>
+
                 <div className="row">
-                    {this.props.data.map(_=> <MovieCard key={_.id} data={_} />)}
+                    {this.props.movies.map(_=> <MovieCard key={_.id} data={_} />)}
                 </div>
             </div>
         )
     }
 }
-export default HomePage
+
+export default connect(state => ({ movies: state.movies }))(HomePage);
