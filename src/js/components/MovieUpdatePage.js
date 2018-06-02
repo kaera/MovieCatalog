@@ -9,8 +9,8 @@ class Movie extends React.Component{
         super(props);
     }
 
-    submitMovie(movie) {
-        this.props.createMovie(movie);
+    updateMovie(movie) {
+        Object.assign(this.props.movies.find(_ => _.id = movie.id), movie);
         this.props.history.push({
             pathname: '/'
         });
@@ -22,7 +22,7 @@ class Movie extends React.Component{
             <div>
                 <h1>Movie adding</h1>
                 <div className="row">
-                    <MovieForm submitMovie={this.submitMovie.bind(this)} movie={movie} />
+                    <MovieForm submitMovie={this.updateMovie.bind(this)} movie={movie} />
                     <Link to="/">Home</Link>
                 </div>
             </div>

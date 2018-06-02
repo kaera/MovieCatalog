@@ -9,6 +9,7 @@ let countriesInput;
 let directorsInput;
 let durationInput;
 let actorsInput;
+let idInput;
 
 class MovieForm extends React.Component {
     constructor(props) {
@@ -39,7 +40,7 @@ class MovieForm extends React.Component {
             ],
             plot: plotInput.value,
             duration: durationInput.value,
-            id: +new Date % 1e8
+            id: idInput.value
         };
         this.props.submitMovie(movie);
         e.target.reset();
@@ -49,11 +50,13 @@ class MovieForm extends React.Component {
         const movie = this.props.movie || {
             countries: { list: [] },
             categories: { list: [] },
-            collectives: [{ list: [] }, { list: [] }]
+            collectives: [{ list: [] }, { list: [] }],
+            id: +new Date % 1e8
         };
         return (
             <div>
                 <form onSubmit={this.onSubmit.bind(this)}>
+                    <input type="hidden" name="id" ref={node => idInput = node} defaultValue={movie.id} />
                     <dl className="row mt-5">
                         <dt className="col-sm-3">Заголовок:</dt>
                         <dd className="col-sm-9">
