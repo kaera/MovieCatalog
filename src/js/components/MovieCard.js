@@ -12,7 +12,7 @@ class MovieCard extends Component {
                 <div className="card-body">
                     <h5 className="card-title">{this.props.data.title}</h5>
                     <p className="card-text">{this.props.data.plot}</p>
-                    <a href="#" className="btn btn-link">Go somewhere</a>
+                    <a href={this.props.data.id} className="btn btn-link">Show details</a>
                 </div>
             </div>
         )
