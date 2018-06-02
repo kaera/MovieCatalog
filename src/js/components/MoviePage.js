@@ -23,10 +23,10 @@ class MoviePage extends Component {
                     <dt className="col-sm-3">Год выпуска:</dt>
                     <dd className="col-sm-9">{data.year}</dd>
 
-                    <dt className="col-sm-3">{data.categories.title}:</dt>
+                    <dt className="col-sm-3">Жанры:</dt>
                     <dd className="col-sm-9">{data.categories.list.map(item => item.name).join(', ')}</dd>
 
-                    <dt className="col-sm-3">{data.countries.title}:</dt>
+                    <dt className="col-sm-3">Страны:</dt>
                     <dd className="col-sm-9">{data.countries.list.map(item => item.name).join(', ')}</dd>
 
                     <dt className="col-sm-3">{data.collectives[0].title}:</dt>

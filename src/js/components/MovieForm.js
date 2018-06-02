@@ -7,6 +7,7 @@ let plotInput;
 let imgInput;
 let countriesInput;
 let directorsInput;
+let durationInput;
 let actorsInput;
 
 class MovieForm extends React.Component {
@@ -18,24 +19,26 @@ class MovieForm extends React.Component {
         e.preventDefault();
         const movie = {
             title: titleInput.value,
+            img: imgInput.value,
             year: yearInput.value,
             categories: {
-                list: categoriesInput.value.split(/,\s*/),
+                list: categoriesInput.value.split(/,\s*/).map(_ => ({ name: _})),
             },
             countries: {
-                list: countriesInput.value.split(/,\s*/),
+                list: countriesInput.value.split(/,\s*/).map(_ => ({ name: _})),
             },
             collectives: [
                 {
                     title: "Режиссеры",
-                    list: directorsInput.value.split(/,\s*/),
+                    list: directorsInput.value.split(/,\s*/).map(_ => ({ name: _})),
                 },
                 {
                     title: "Актеры",
-                    list: actorsInput.value.split(/,\s*/),
+                    list: actorsInput.value.split(/,\s*/).map(_ => ({ name: _})),
                 }
             ],
             plot: plotInput.value,
+            duration: durationInput.value,
             id: +new Date % 1e8
         };
         this.props.submitMovie(movie);
@@ -85,6 +88,11 @@ class MovieForm extends React.Component {
                         <dt className="col-sm-3">Актеры:</dt>
                         <dd className="col-sm-9">
                             <input type="text" name="actors" ref={node => actorsInput = node} defaultValue={movie.collectives[1].list.map(_ => _.name).join(', ')} />
+                        </dd>
+
+                        <dt className="col-sm-3">Продолжительность:</dt>
+                        <dd className="col-sm-9">
+                            <input type="text" name="duration" ref={node => durationInput = node} defaultValue={movie.duration} />
                         </dd>
 
                         <dt className="col-sm-3"> Сюжет:</dt>

@@ -27,8 +27,7 @@ class MovieCard extends Component {
                     <h5 className="card-title">{this.props.data.title}</h5>
                     <p className="card-text">Год выпуска: {this.props.data.year}</p>
                     <p className="card-text">
-                        {this.props.data.categories.title}:&nbsp;
-                        {this.props.data.categories.list.map(item => item.name).join(', ')}
+                        Жанры: {this.props.data.categories.list.map(item => item.name).join(', ')}
                     </p>
                     <p className="card-text">
                         {this.props.data.collectives[0].title}:&nbsp;

@@ -9,13 +9,20 @@ class Movie extends React.Component{
         super(props);
     }
 
+    submitMovie(movie) {
+        this.props.createMovie(movie);
+        this.props.history.push({
+            pathname: '/'
+        });
+    }
+
     render() {
         const movie = this.props.movies.find(item => item.id == this.props.match.params.id);
         return(
             <div>
                 <h1>Movie adding</h1>
                 <div className="row">
-                    <MovieForm submitMovie={this.props.createMovie} movie={movie} />
+                    <MovieForm submitMovie={this.submitMovie.bind(this)} movie={movie} />
                     <Link to="/">Home</Link>
                 </div>
             </div>
