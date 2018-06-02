@@ -43,49 +43,53 @@ class MovieForm extends React.Component {
     }
 
     render() {
-
+        const movie = this.props.movie || {
+            countries: { list: [] },
+            categories: { list: [] },
+            collectives: [{ list: [] }, { list: [] }]
+        };
         return (
             <div>
                 <form onSubmit={this.onSubmit.bind(this)}>
                     <dl className="row mt-5">
                         <dt className="col-sm-3">Заголовок:</dt>
                         <dd className="col-sm-9">
-                            <input type="text" name="title" ref={node => titleInput = node}/>
+                            <input type="text" name="title" ref={node => titleInput = node} defaultValue={movie.title} />
                         </dd>
 
                         <dt className="col-sm-3">Превью:</dt>
                         <dd className="col-sm-9">
-                            <input type="url" name="img" ref={node => imgInput = node}/>
+                            <input type="url" name="img" ref={node => imgInput = node} defaultValue={movie.img} />
                         </dd>
 
                         <dt className="col-sm-3">Год выпуска:</dt>
                         <dd className="col-sm-9">
-                            <input type="text" name="year" ref={node => yearInput = node}/>
+                            <input type="text" name="year" ref={node => yearInput = node} defaultValue={movie.year} />
                         </dd>
 
                         <dt className="col-sm-3">Страны:</dt>
                         <dd className="col-sm-9">
-                            <input type="text" name="countries" ref={node => countriesInput = node}/>
+                            <input type="text" name="countries" ref={node => countriesInput = node} defaultValue={movie.countries.list.map(_ => _.name).join(', ')} />
                         </dd>
 
                         <dt className="col-sm-3">Жанры:</dt>
                         <dd className="col-sm-9">
-                            <input type="text" name="categories" ref={node => categoriesInput = node}/>
+                            <input type="text" name="categories" ref={node => categoriesInput = node} defaultValue={movie.categories.list.map(_ => _.name).join(', ')} />
                         </dd>
 
                         <dt className="col-sm-3">Режиссеры:</dt>
                         <dd className="col-sm-9">
-                            <input type="text" name="directors" ref={node => directorsInput = node}/>
+                            <input type="text" name="directors" ref={node => directorsInput = node} defaultValue={movie.collectives[0].list.map(_ => _.name).join(', ')} />
                         </dd>
 
                         <dt className="col-sm-3">Актеры:</dt>
                         <dd className="col-sm-9">
-                            <input type="text" name="actors" ref={node => actorsInput = node}/>
+                            <input type="text" name="actors" ref={node => actorsInput = node} defaultValue={movie.collectives[1].list.map(_ => _.name).join(', ')} />
                         </dd>
 
                         <dt className="col-sm-3"> Сюжет:</dt>
                         <dd className="col-sm-9">
-                            <input type="text" name="plot" ref={node => plotInput = node}/>
+                            <input type="text" name="plot" ref={node => plotInput = node} defaultValue={movie.plot} />
                         </dd>
                     </dl>
 

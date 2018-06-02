@@ -5,10 +5,17 @@ class MovieCard extends Component {
         super(props);
     }
 
-    navigateToMovie(e) {
+    navigateToMoviePage(e) {
         e.preventDefault();
         this.props.history.push({
             pathname: this.props.data.id
+        });
+    }
+
+    navigateToEditMoviePage(e) {
+        e.preventDefault();
+        this.props.history.push({
+            pathname: this.props.data.id + '/edit'
         });
     }
 
@@ -29,7 +36,8 @@ class MovieCard extends Component {
                     </p>
                     <p className="card-text">Продолжительность: {this.props.data.duration}</p>
 
-                    <a href={this.props.data.id} onClick={this.navigateToMovie.bind(this)} className="btn btn-link">Show details</a>
+                    <a href={this.props.data.id} onClick={this.navigateToMoviePage.bind(this)} className="btn btn-link">Show details</a>
+                    <a href={this.props.data.id + '/edit'} onClick={this.navigateToEditMoviePage.bind(this)} className="btn btn-link">Edit movie</a>
                 </div>
             </div>
         )
