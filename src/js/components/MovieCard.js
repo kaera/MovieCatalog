@@ -21,8 +21,10 @@ class MovieCard extends Component {
 
     render() {
         return (
-            <div className="card col-4">
-                <img className="card-img-top" src={this.props.data.img} alt={this.props.data.title} />
+            <div className="card col-4 mt-3 pt-3">
+                <div style={{ maxHeight: '470px', overflow: 'hidden' }}>
+                    <img className="card-img-top" src={this.props.data.img} alt={this.props.data.title} />
+                </div>
                 <div className="card-body">
                     <h5 className="card-title">{this.props.data.title}</h5>
                     <p className="card-text">Год выпуска: {this.props.data.year}</p>

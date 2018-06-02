@@ -7,7 +7,7 @@ import data from './data.json';
 import configureStore from './js/store/configureStore';
 
 const store = configureStore({
-    movies: data.slice(0, 5)
+    movies: data
 });
 
 ReactDOM.render(
