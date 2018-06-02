@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as movieActions from '../actions/movieActions';
 import MovieForm from "./MovieForm";
@@ -10,7 +9,7 @@ class Movie extends React.Component{
     }
 
     updateMovie(movie) {
-        Object.assign(this.props.movies.find(_ => _.id = movie.id), movie);
+        Object.assign(this.props.movies.find(_ => _.id == movie.id), movie);
         this.props.history.push({
             pathname: '/'
         });
@@ -20,10 +19,9 @@ class Movie extends React.Component{
         const movie = this.props.movies.find(item => item.id == this.props.match.params.id);
         return(
             <div>
-                <h1>Movie adding</h1>
+                <h1>Update movie</h1>
                 <div className="row">
                     <MovieForm submitMovie={this.updateMovie.bind(this)} movie={movie} />
-                    <Link to="/">Home</Link>
                 </div>
             </div>
         )

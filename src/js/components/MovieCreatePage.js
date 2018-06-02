@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as movieActions from '../actions/movieActions';
 import MovieForm from "./MovieForm";
@@ -19,10 +18,9 @@ class Movie extends React.Component{
     render() {
         return(
             <div>
-                <h1>Movie adding</h1>
+                <h1>Add movie</h1>
                 <div className="row">
                     <MovieForm submitMovie={this.submitMovie.bind(this)} />
-                    <Link to="/">Home</Link>
                 </div>
             </div>
         )

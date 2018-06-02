@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import MovieCard from './MovieCard';
 import {connect} from "react-redux";
 
@@ -11,8 +12,7 @@ class HomePage extends Component {
         return (
             <div>
                 <h1>Movie Catalog</h1>
-                <a href="/new" className="btn btn-link">add movie</a>
-
+                <Link to="/new" className="btn btn-link">Add movie</Link>
                 <div className="row">
                     {this.props.movies.map(_=> <MovieCard {...this.props} key={_.id} data={_} />)}
                 </div>

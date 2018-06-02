@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 let titleInput;
 let yearInput;
@@ -43,7 +44,6 @@ class MovieForm extends React.Component {
             id: idInput.value
         };
         this.props.submitMovie(movie);
-        e.target.reset();
     }
 
     render() {
@@ -60,12 +60,24 @@ class MovieForm extends React.Component {
                     <dl className="row mt-5">
                         <dt className="col-sm-3">Заголовок:</dt>
                         <dd className="col-sm-9">
-                            <input type="text" name="title" ref={node => titleInput = node} defaultValue={movie.title} />
+                            <input
+                                type="text"
+                                name="title"
+                                ref={node => titleInput = node}
+                                defaultValue={movie.title}
+                                required
+                            />
                         </dd>
 
                         <dt className="col-sm-3">Превью:</dt>
                         <dd className="col-sm-9">
-                            <input type="url" name="img" ref={node => imgInput = node} defaultValue={movie.img} />
+                            <input
+                                type="url"
+                                name="img"
+                                ref={node => imgInput = node}
+                                defaultValue={movie.img}
+                                required
+                            />
                         </dd>
 
                         <dt className="col-sm-3">Год выпуска:</dt>
@@ -98,13 +110,21 @@ class MovieForm extends React.Component {
                             <input type="text" name="duration" ref={node => durationInput = node} defaultValue={movie.duration} />
                         </dd>
 
-                        <dt className="col-sm-3"> Сюжет:</dt>
+                        <dt className="col-sm-3">Сюжет:</dt>
                         <dd className="col-sm-9">
-                            <input type="text" name="plot" ref={node => plotInput = node} defaultValue={movie.plot} />
+                            <textarea name="plot" ref={node => plotInput = node} defaultValue={movie.plot} required>
+                            </textarea>
                         </dd>
                     </dl>
 
-                    <input className="btn-primary" type="submit"/>
+                    <div className="row">
+                        <div className="col-sm-3"></div>
+                        <div className="col-sm-9">
+                            <a href="/" onClick={this.onSubmit.bind(this)} className="btn btn-link">Save</a>
+                            <Link to="/" className="btn btn-link">Cancel</Link>
+                        </div>
+                    </div>
+
                 </form>
             </div>
         )
