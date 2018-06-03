@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as movieActions from '../actions/movieActions';
-import MovieForm from "./MovieForm";
+import MovieForm from "../components/MovieForm";
 
 class Movie extends React.Component {
     constructor(props) {
