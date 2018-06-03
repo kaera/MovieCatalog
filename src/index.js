@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './containers/App';
 import { loadMovies } from "./actions/movieActions";
-import data from './data.json';
+import mockApi from "./mockApi";
 
 import configureStore from './store/configureStore';
 
 const store = configureStore();
-store.dispatch(loadMovies(data));
+store.dispatch(dispatch => {
+    mockApi.loadMovies().then(movies => {
+        dispatch(loadMovies(movies));
+    });
+});
 
 ReactDOM.render(
     <Provider store={store}>
