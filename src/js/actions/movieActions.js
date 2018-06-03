@@ -1,3 +1,10 @@
+export const loadMovies = (movies) => {
+    return {
+        type: 'LOAD_MOVIES',
+        movies
+    }
+};
+
 export const createMovie = (movie) => {
     return {
         type: 'CREATE_MOVIE',
@@ -5,9 +12,9 @@ export const createMovie = (movie) => {
     }
 };
 
-export const loadMovies = (movies) => {
+export const updateMovie = (movie) => {
     return {
-        type: 'LOAD_MOVIES',
-        movies
+        type: 'UPDATE_MOVIE',
+        movie
     }
 };
