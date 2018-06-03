@@ -3,13 +3,9 @@ import { connect } from 'react-redux';
 import * as movieActions from '../actions/movieActions';
 import MovieForm from "./MovieForm";
 
-class Movie extends React.Component{
-    constructor(props){
-        super(props);
-    }
-
+class Movie extends React.Component {
     submitMovie(movie) {
-        this.props.createMovie(movie);
+        this.props.dispatch(movieActions.createMovie(movie));
         this.props.history.push({
             pathname: '/'
         });
@@ -27,16 +23,4 @@ class Movie extends React.Component{
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        movies: state.movies
-    }
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        createMovie: movie => dispatch(movieActions.createMovie(movie))
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Movie);
+export default connect()(Movie);
