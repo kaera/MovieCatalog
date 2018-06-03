@@ -9,5 +9,10 @@
   .card {
     width: 360px;
     margin-top: 20px;
+
+    .movie-preview {
+      height: 500px;
+      display: flex;
+    }
   }
 }
