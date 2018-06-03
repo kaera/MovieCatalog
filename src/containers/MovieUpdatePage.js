@@ -19,7 +19,7 @@ class Movie extends React.Component {
     render() {
         const movie = this.props.movies.find(item => item.id == this.props.match.params.id);
         return(
-            <div>
+            <div className="container">
                 <h1>Update movie</h1>
                 <div className="row">
                     <MovieForm submitMovie={this.updateMovie} movie={movie} />

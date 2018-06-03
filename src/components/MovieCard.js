@@ -21,7 +21,7 @@ class MovieCard extends Component {
 
     render() {
         return (
-            <div className="card col-4 mt-3 pt-3">
+            <div className="card border-0">
                 <div style={{ maxHeight: '470px', overflow: 'hidden' }}>
                     <img className="card-img-top" src={this.props.data.img} alt={this.props.data.title} />
                 </div>

@@ -9,7 +9,7 @@ class MoviePage extends Component {
     render() {
         const data = this.props.movies.find(item => item.id == this.props.match.params.id);
         return (
-            <div>
+            <div className="container">
                 <div className="media">
                     <img className="mr-3" src={data.img} alt={data.title} />
                     <div className="media-body">

@@ -4,18 +4,17 @@ import HomePage from './HomePage';
 import MoviePage from './MoviePage';
 import MovieCreatePage from './MovieCreatePage';
 import MovieUpdatePage from './MovieUpdatePage';
+import '../assets/styles/styles.scss';
 
 const App = () => {
     return (
         <Router>
-            <div>
-                <Switch>
-                    <Route exact path="/" component={HomePage} />
-                    <Route exact path="/new" component={MovieCreatePage} />
-                    <Route path="/:id/edit" component={MovieUpdatePage} />
-                    <Route path="/:id" component={MoviePage} />
-                </Switch>
-            </div>
+            <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/new" component={MovieCreatePage} />
+                <Route path="/:id/edit" component={MovieUpdatePage} />
+                <Route path="/:id" component={MoviePage} />
+            </Switch>
         </Router>
     )
 };

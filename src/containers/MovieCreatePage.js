@@ -13,7 +13,7 @@ class Movie extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="container">
                 <h1>Add movie</h1>
                 <div className="row">
                     <MovieForm submitMovie={this.submitMovie.bind(this)} />
